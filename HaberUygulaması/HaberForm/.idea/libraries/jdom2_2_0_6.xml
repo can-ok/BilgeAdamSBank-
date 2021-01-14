@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="jdom2-2.0.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jdom2-2.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../rome-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../rome-utils-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../slf4j-api-1.7.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../javassist-3.26.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../reflections-0.9.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../RssScraper/out/artifacts/RssScraper_jar/RssScraper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

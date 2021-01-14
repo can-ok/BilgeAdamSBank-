@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RssScraper:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RssScraper_jar</output-path>
+    <root id="archive" name="RssScraper.jar">
+      <element id="module-output" name="RssScraper" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../jdom2-2.0.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../rome-1.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../rome-utils-1.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../slf4j-api-1.7.16.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

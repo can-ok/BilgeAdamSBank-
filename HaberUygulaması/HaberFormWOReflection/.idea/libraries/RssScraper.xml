@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RssScraper">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../RssScraper/out/artifacts/RssScraper_jar/RssScraper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

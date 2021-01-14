@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="orderItem">
+
+    <typeAlias alias="IBatisOrderItem" type="com.ba.reportapp.dto.OrderItemsDto"/>
+
+    <resultMap id="orderItemResultMap" class="IBatisOrderItem">
+        <result property="Id" column="ID"/>
+        <result property="productId" column="PRODUCTID"/>
+        <result property="productCount" column="PRODUCTCOUNT"/>
+        <result property="productPrice" column="PRODUCTPRICE"/>
+        <result property="orderId" column="ORDERID"/>
+    </resultMap>
+
+    <typeAlias alias="IBatisResponseItem" type="com.ba.reportapp.dto.ResponseDto"/>
+
+    <resultMap id="responseItemResultMap" class="IBatisResponseItem">
+        <result property="key" column="Key"/>
+        <result property="value" column="Value"/>
+    </resultMap>
+
+
+    <select id="getOrderItems"  resultMap="orderItemResultMap">
+		  SELECT * FROM ORDERITEMS
+	</select>
+
+
+    <select id="getTopFive"  resultMap="responseItemResultMap">
+		SELECT p.title as "Key",sum(o.PRODUCTCOUNT) as "Value"
+         FROM Product p
+         INNER JOIN ORDERITEMS o
+                    ON p.id = o.PRODUCTID
+                    GROUP BY p.title order by sum(o.PRODUCTCOUNT) desc limit 5;
+
+	</select>
+
+
+</sqlMap>

@@ -1,0 +1,42 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CustomerServiceService WSDL service -->
+
+  <service name="CustomerService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.ba.com"/>
+      <parameter name="wsdlServiceElement" value="CustomerServiceService"/>
+      <parameter name="schemaQualified" value="http://service.ba.com,http://dto.ba.com"/>
+      <parameter name="wsdlServicePort" value="CustomerService"/>
+      <parameter name="className" value="com.ba.service.CustomerServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CustomerService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getAllCustomer" qname="operNS:getAllCustomer" xmlns:operNS="http://service.ba.com" returnQName="retNS:getAllCustomerReturn" xmlns:retNS="http://service.ba.com" returnType="rtns:Customer" xmlns:rtns="http://dto.ba.com" soapAction="" >
+      </operation>
+      <operation name="addCustomer" qname="operNS:addCustomer" xmlns:operNS="http://service.ba.com" returnQName="retNS:addCustomerReturn" xmlns:retNS="http://service.ba.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:customer" xmlns:pns="http://service.ba.com" type="tns:Customer" xmlns:tns="http://dto.ba.com"/>
+      </operation>
+      <operation name="getCustomer" qname="operNS:getCustomer" xmlns:operNS="http://service.ba.com" returnQName="retNS:getCustomerReturn" xmlns:retNS="http://service.ba.com" returnType="rtns:Customer" xmlns:rtns="http://dto.ba.com" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://service.ba.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addCustomer getAllCustomer getCustomer"/>
+
+      <typeMapping
+        xmlns:ns="http://dto.ba.com"
+        qname="ns:Customer"
+        type="java:com.ba.dto.Customer"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

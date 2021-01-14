@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Employees>
+    <Employee>
+        <Name type="class java.lang.String">can</Name>
+        <Id type="int">1</Id>
+        <Jobs>
+            <Name>job1</Name>
+            <Id>1</Id>
+            <Name>job2</Name>
+            <Id>2</Id>
+        </Jobs>
+    </Employee>
+</Employees>
